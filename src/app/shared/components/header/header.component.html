@@ -1,0 +1,29 @@
+<mat-toolbar id="header" class="!h-20 !bg-black flex items-center justify-between">
+  <!-- Menu mobile -->
+  @if (!isHome) {
+    <menu class="block sm:hidden">
+      <button mat-icon-button [matMenuTriggerFor]="menu" class="!text-orange-500">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item [routerLink]="['']" class="!text-orange-500 hover:font-bold">HOME</button>
+        <button mat-menu-item [routerLink]="['/meus-churrascos']" class="!text-orange-500 hover:font-bold">CHURRASCOS</button>
+      </mat-menu>
+    </menu>
+  }
+
+  <!-- Menu desktop -->
+  @if (!isHome) {
+    <menu class="hidden sm:flex gap-6">
+      <button mat-button [routerLink]="['']" class="!text-orange-500 !text-2xl hover:!font-bold">HOME</button>
+      <button mat-button [routerLink]="['/meus-churrascos']" class="!text-orange-500 !text-2xl hover:!font-bold">CHURRASCOS</button>
+    </menu>
+  }
+
+  <div class="flex-grow"></div>
+
+  <!-- Logo -->
+  <figure class="flex items-center gap-4 cursor-pointer">
+    <img src="../../assets/logo1.png" class="w-60 h-20" alt="logo" />
+  </figure>
+</mat-toolbar>

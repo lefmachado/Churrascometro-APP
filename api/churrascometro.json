@@ -1,0 +1,162 @@
+{
+  "carnes": [
+    {
+      "id": "1",
+      "nome": "picanha",
+      "tipo": "bovina",
+      "preco_kg": 70,
+      "consumo_medio_adulto_g": 300,
+      "consumo_medio_crianca_g": 100
+    },
+    {
+      "id": "2",
+      "nome": "costela",
+      "tipo": "bovina",
+      "preco_kg": 35,
+      "consumo_medio_adulto_g": 250,
+      "consumo_medio_crianca_g": 100
+    },
+    {
+      "id": "3",
+      "nome": "linguiça",
+      "tipo": "suína",
+      "preco_kg": 30,
+      "consumo_medio_adulto_g": 200,
+      "consumo_medio_crianca_g": 100
+    },
+    {
+      "id": "4",
+      "nome": "frango",
+      "tipo": "ave",
+      "preco_kg": 15,
+      "consumo_medio_adulto_g": 200,
+      "consumo_medio_crianca_g": 100
+    }
+  ],
+  "bebidas": [
+    {
+      "id": "1",
+      "nome": "cerveja",
+      "tipo": "alcoólica",
+      "preco_litro": 5,
+      "consumo_medio_adulto_ml": 500,
+      "consumo_medio_crianca_ml": 0
+    },
+    {
+      "id": "2",
+      "nome": "refrigerante",
+      "tipo": "não alcoólica",
+      "preco_litro": 3,
+      "consumo_medio_adulto_ml": 300,
+      "consumo_medio_crianca_ml": 200
+    },
+    {
+      "id": "3",
+      "nome": "água",
+      "tipo": "não alcoólica",
+      "preco_litro": 2,
+      "consumo_medio_adulto_ml": 500,
+      "consumo_medio_crianca_ml": 300
+    },
+    {
+      "id": "4",
+      "nome": "suco",
+      "tipo": "não alcoólica",
+      "preco_litro": 6,
+      "consumo_medio_adulto_ml": 500,
+      "consumo_medio_crianca_ml": 300
+    }
+  ],
+  "usuarios": [
+    {
+      "id": 1,
+      "nome": "Usuário Exemplo",
+      "email": "exemplo@email.com",
+      "senha": "12345"
+    },
+    {
+      "id": "90d3",
+      "nome": "teste",
+      "email": "teste@teste.com",
+      "senha": "teste123"
+    },
+    {
+      "id": "ead7",
+      "nome": "teste1",
+      "email": "teste1@teste.com",
+      "senha": "teste1123"
+    }
+  ],
+  "churrascos": [
+    {
+      "id": "6421",
+      "data": "2024-12-15T22:34:12.422Z",
+      "totalAdultos": 3,
+      "totalCriancas": 2,
+      "totalCarnes": 2.7,
+      "totalBebidas": 2.8,
+      "valorTotal": 124.4,
+      "carnes": {
+        "picanha": {
+          "peso": "1.10 kg",
+          "preco": "R$ 77.00"
+        },
+        "linguiça": {
+          "peso": "0.80 kg",
+          "preco": "R$ 24.00"
+        },
+        "frango": {
+          "peso": "0.80 kg",
+          "preco": "R$ 12.00"
+        }
+      },
+      "bebidas": {
+        "cerveja": {
+          "peso": "1.50 L",
+          "preco": "R$ 7.50"
+        },
+        "refrigerante": {
+          "peso": "1.30 L",
+          "preco": "R$ 3.90"
+        }
+      },
+      "usuarioId": {
+        "id": "90d3",
+        "nome": "teste"
+      }
+    },
+    {
+      "id": "587a",
+      "data": "2024-12-15T22:39:10.053Z",
+      "totalAdultos": 2,
+      "totalCriancas": 0,
+      "totalCarnes": 1.1,
+      "totalBebidas": 1.6,
+      "valorTotal": 66.3,
+      "carnes": {
+        "picanha": {
+          "peso": "0.60 kg",
+          "preco": "R$ 42.00"
+        },
+        "costela": {
+          "peso": "0.50 kg",
+          "preco": "R$ 17.50"
+        }
+      },
+      "bebidas": {
+        "cerveja": {
+          "peso": "1.00 L",
+          "preco": "R$ 5.00"
+        },
+        "refrigerante": {
+          "peso": "0.60 L",
+          "preco": "R$ 1.80"
+        }
+      },
+      "usuarioId": {
+        "id": "90d3",
+        "nome": "teste"
+      }
+    }
+  ]
+}

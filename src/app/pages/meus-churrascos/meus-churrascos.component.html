@@ -1,0 +1,68 @@
+<div class="container mx-auto p-6 relative">
+  <!-- Cabeçalho -->
+  <div class="flex justify-between items-center mb-6">
+    <h1 class="text-2xl font-bold">Meus Churrascos</h1>
+    <div class="flex space-x-4">
+      <!-- Botão Cadastrar Novo Churrasco -->
+      <button
+        mat-raised-button
+        color="primary"
+        [routerLink]="['/churrasco/novo']"
+        class="px-4 py-2"
+      >
+        Cadastrar Novo Churrasco
+      </button>
+
+      <!-- Botão Sair -->
+      <button
+        mat-raised-button
+        color="warn"
+        (click)="sair()"
+        class="px-4 py-2"
+      >
+        Sair
+      </button>
+    </div>
+  </div>
+
+  <!-- Exibe o carregamento -->
+  <ng-container *ngIf="loading">
+    <div class="flex justify-center">
+      <mat-spinner color="accent" diameter="50"></mat-spinner>
+    </div>
+  </ng-container>
+
+  <!-- Lista os churrascos -->
+  <ng-container *ngIf="!loading && churrascos.length > 0">
+    <table class="table-auto w-full border-collapse border border-gray-200 rounded-lg shadow-md">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border px-4 py-2 text-left">ID</th>
+          <th class="border px-4 py-2 text-left">Data</th>
+          <th class="border px-4 py-2 text-left">Total (R$)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let churrasco of churrascos" class="relative">
+          <td class="border px-4 py-2">{{ churrasco.id }}</td>
+          <td class="border px-4 py-2">{{ churrasco.data | date: 'dd/MM/yyyy HH:mm' }}</td>
+          <td class="border px-4 py-2">{{ churrasco.valorTotal | currency }}</td>
+          <!-- Botões fora da tabela -->
+          <td class="absolute top-1/2 right-4 transform -translate-y-1/2 flex space-x-4">
+            <button mat-icon-button color="primary" (click)="visualizarChurrasco(churrasco.id)">
+              <mat-icon>visibility</mat-icon>
+            </button>
+            <button mat-icon-button color="warn" (click)="excluirChurrasco(churrasco.id)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </ng-container>
+
+  <!-- Caso não tenha churrascos -->
+  <ng-container *ngIf="!loading && churrascos.length === 0">
+    <p class="text-center text-gray-600 mt-4">Nenhum churrasco encontrado.</p>
+  </ng-container>
+</div>

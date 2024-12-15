@@ -1,0 +1,72 @@
+<section
+  class="section-login flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-yellow-100 via-red-100 to-orange-100 text-gray-800"
+>
+  <!-- Cabeçalho -->
+  <div class="text-center mb-8">
+    <h1 class="text-4xl font-extrabold text-orange-700 mb-4">
+      Login no Churrascômetro
+    </h1>
+    <p class="text-lg text-gray-700">
+      Acesse sua conta para gerenciar seus churrascos.
+    </p>
+  </div>
+
+  <!-- Formulário de Login -->
+  <div class="w-full max-w-sm bg-white p-6 rounded-lg shadow-md">
+    <h2 class="text-2xl font-bold text-gray-800 text-center mb-6">Login</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="fazerLogin()" class="space-y-4">
+      <mat-form-field appearance="fill" class="w-full">
+        <mat-label>Email</mat-label>
+        <input
+          matInput
+          formControlName="email"
+          placeholder="Digite seu email"
+          type="email"
+          class="text-lg w-full border border-gray-900 rounded-lg"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="w-full">
+        <mat-label>Senha</mat-label>
+        <input
+          matInput
+          formControlName="senha"
+          placeholder="Digite sua senha"
+          type="password"
+          class="text-lg w-full border border-gray-900 rounded-lg"
+        />
+      </mat-form-field>
+
+      <!-- Botão de Login -->
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="loginForm.invalid"
+        class="w-full py-2"
+      >
+        Entrar
+      </button>
+    </form>
+
+    <!-- Link para Cadastro -->
+    <p class="text-sm text-gray-600 mt-4 text-center">
+      Ainda não tem uma conta?
+      <a
+        [routerLink]="['/cadastro']"
+        class="font-bold text-orange-500 hover:text-orange-700 transition">
+        Cadastre-se aqui
+      </a>
+    </p>
+    <p class="flex items-center justify-center mt-2" >
+      <a
+        [routerLink]="['/']"
+        class="flex items-center text-sm text-gray-600 hover:text-orange-700 transition"
+      >
+        <mat-icon class="mr-1 text-orange-500">arrow_back</mat-icon>
+        <span class="font-medium">Voltar para Home</span>
+      </a>
+    </p>
+  </div>
+</section>
+

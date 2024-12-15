@@ -1,0 +1,88 @@
+<div class="container mx-auto p-6">
+  <h1 class="text-3xl font-bold text-center mb-6">Resumo do Churrasco</h1>
+
+  <!-- Verificar se os dados estão carregando -->
+  <ng-container *ngIf="loading">
+    <div class="flex justify-center">
+      <mat-spinner color="accent" diameter="50"></mat-spinner>
+    </div>
+  </ng-container>
+
+  <!-- Detalhes do churrasco -->
+  <ng-container *ngIf="!loading && churrasco">
+    <div class="mb-6">
+      <h2 class="text-2xl font-bold text-green-800">Informações Gerais</h2>
+      <div class="grid grid-cols-2 gap-4 text-lg font-semibold text-gray-800 mt-4">
+        <p>Data:</p>
+        <p>{{ churrasco.data | date: 'dd/MM/yyyy HH:mm' }}</p>
+        <p>Total de Adultos:</p>
+        <p>{{ churrasco.totalAdultos }}</p>
+        <p>Total de Crianças:</p>
+        <p>{{ churrasco.totalCriancas }}</p>
+        <p>Total de Carnes:</p>
+        <p>{{ churrasco.totalCarnes | number: '1.2-2' }} kg</p>
+        <p>Total de Bebidas:</p>
+        <p>{{ churrasco.totalBebidas | number: '1.2-2' }} L</p>
+        <p>Valor Total:</p>
+        <p>{{ churrasco.valorTotal | currency }}</p>
+      </div>
+    </div>
+
+    <div class="mb-6">
+      <h2 class="text-2xl font-bold text-green-800">Detalhes das Carnes</h2>
+      <table class="table-auto w-full text-center border-collapse bg-white rounded-lg shadow-md mb-6">
+        <thead class="bg-green-300">
+          <tr>
+            <th class="px-4 py-2 text-green-900 font-bold">Tipo</th>
+            <th class="px-4 py-2 text-green-900 font-bold">Peso</th>
+            <th class="px-4 py-2 text-green-900 font-bold">Preço</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let carne of carneKeys">
+            <td class="border px-4 py-2">{{ carne }}</td>
+            <td class="border px-4 py-2">{{ churrasco.carnes[carne]?.peso || '-' }}</td>
+            <td class="border px-4 py-2">{{ churrasco.carnes[carne]?.preco || '-' }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="mb-6">
+      <h2 class="text-2xl font-bold text-green-800">Detalhes das Bebidas</h2>
+      <table class="table-auto w-full text-center border-collapse bg-white rounded-lg shadow-md">
+        <thead class="bg-green-300">
+          <tr>
+            <th class="px-4 py-2 text-green-900 font-bold">Tipo</th>
+            <th class="px-4 py-2 text-green-900 font-bold">Volume</th>
+            <th class="px-4 py-2 text-green-900 font-bold">Preço</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let bebida of bebidaKeys">
+            <td class="border px-4 py-2">{{ bebida }}</td>
+            <td class="border px-4 py-2">{{ churrasco.bebidas[bebida]?.peso || '-' }}</td>
+            <td class="border px-4 py-2">{{ churrasco.bebidas[bebida]?.preco || '-' }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </ng-container>
+
+  <!-- Caso não tenha churrasco -->
+  <ng-container *ngIf="!loading && !churrasco">
+    <p class="text-center text-gray-600 mt-4">Churrasco não encontrado.</p>
+  </ng-container>
+
+  <!-- Botão para voltar -->
+  <div class="mt-6 flex justify-center">
+    <button
+      mat-raised-button
+      color="accent"
+      class="px-6 py-2 font-bold text-white rounded-lg shadow-md"
+      (click)="voltarParaMeusChurrascos()"
+    >
+      Voltar para Meus Churrascos
+    </button>
+  </div>
+</div>
